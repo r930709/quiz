@@ -3,12 +3,13 @@
 #include "Binary_tree.h"
 
 /*--------Tree Structure
--            1
--           / \
--          2   5
--         / \   \
--        3   4   6
--
+-             1
+-           /   \
+-          2     5
+-         / \   / \
+-        3   4 N   6
+-	/ \ / \   / \
+.      N  N N  N N   N
 */
 
 
@@ -17,22 +18,19 @@ Tree_Node *Flatten_Recursive(Tree_Node *root)
 
     if(root == NULL) {
         return NULL;
-    }
-    if(root->right) {
+    } else if(root->left) {
+        Tree_Node *tmp_right = root->right;
+        Tree_Node *become_right = Flatten_Recursive(root->left);
+        Tree_Node *br_right_bottom = root->left; /*become_rigjt_right_bottom*/
+        while(br_right_bottom->right) {
+            br_right_bottom = br_right_bottom->right;
+        }
+        br_right_bottom->right= tmp_right;
+        root->right = become_right;
+        root->left = NULL;
+    } else if(root->right) {
         root->right = Flatten_Recursive(root->right);
     }
-    if(root->left) {
-        Tree_Node *tmp_right = root->right;
-        root->right = Flatten_Recursive(root->left);
-        Tree_Node *right_bottom = root->right;
-        while(right_bottom->right) {
-            right_bottom = right_bottom->right;
-        }
-        right_bottom -> right= tmp_right;
-        root->left = NULL;
-    }
-
-
     return( root );
 }
 
