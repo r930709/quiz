@@ -31,7 +31,7 @@ int main()
     //FILE *fp;
     int i=0;
     for(i=0; i<sizeof(A)/sizeof(A[0]); i++) {
-        printf("%d\n",A[i]);
+        printf("%t\n",A[i]);
     }
 #if defined(ITER)
     clock_gettime(CLOCK_REALTIME, &start);
