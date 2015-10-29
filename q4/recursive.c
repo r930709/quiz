@@ -49,7 +49,7 @@ int maxSubArraySum(int arr[],int l,int r)
     int left = maxSubArraySum(arr,l,m);
     int right = maxSubArraySum(arr,m+1,r);
     int cross = maxCrossingSum(arr,l,m,r);
-    return(left,right,cross);
+    return(max_3(left,right,cross));
 }
 
 int MaxSubArray_Recursive(int A[],int n)
