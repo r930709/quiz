@@ -23,9 +23,9 @@ run:$(EXEC)
 	@echo --------Iterative Version Start--------
 	@./iterative
 	@echo --------Iterative Version End----------
-	@echo --------Iterative Version Start--------                       
+	@echo --------Bitwise_Iterative Version Start--------                       
 	@./bitwise_iterative
-	@echo --------Iterative Version End----------
+	@echo --------Bitwise_Iterative Version End----------
 
 clean:
 	$(RM) $(EXEC) *.o perf.*
