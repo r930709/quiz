@@ -31,7 +31,7 @@ char Smallest_Character_Recursive(char str[], char c)
     int tail = mystrlen(str);
     printf("%d\n",tail);
     int head = 0;
-    if(c >= str[tail-1]) {
+    if(c >= str[tail-1] || c < str[0]) {
 
         return(str[0]);
     } else {

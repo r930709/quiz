@@ -48,6 +48,7 @@ int main()
         } else if(ch==1) {
             printf("input a character: ");
             scanf(" %c",&c);
+
 #if defined(ITER)
             clock_gettime(CLOCK_REALTIME, &start);
             result = Smallest_Character_Iterative(str,c);
@@ -60,6 +61,12 @@ int main()
             clock_gettime(CLOCK_REALTIME, &end);
             cpu_time1 = diff_in_second(start,end);
 #endif
+#if defined(BITI)
+            clock_gettime(CLOCK_REALTIME, &start);
+            result = Smallest_Character_Bit_Iterative(str,c);
+            clock_gettime(CLOCK_REALTIME, &end);
+            cpu_time1 = diff_in_second(start,end);
+#endif
 #if defined(RECUR)
             printf("result = [ %c ]\n",result);
             printf("execution time of Recursive() %.10lf sec\n",cpu_time1);
@@ -68,6 +75,10 @@ int main()
 #if defined(ITER)
             printf("result = [ %c ]\n",result);
             printf("execution time of Iterative() %.10lf sec\n",cpu_time1);
+#endif
+#if defined(BITI)
+            printf("result = [ %c ]\n",result);
+            printf("execution time of Bitwise_Iterative() %.10lf sec\n",cpu_time1);
 #endif
 
         }

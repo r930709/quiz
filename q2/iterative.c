@@ -12,7 +12,7 @@ int mystrlen(char str[])
 char Smallest_Character_Iterative(char str[], char c)
 {
     int i=0;
-    if(c >= str[mystrlen(str)-1]) {
+    if(c >= str[mystrlen(str)-1] || c < str[0]) {
 
         return(str[0]);
     } else {
